@@ -1,0 +1,28 @@
+.tabs-control {
+	display: flex;
+	flex-wrap: wrap;
+    height: 100%;
+    margin: 0;
+
+	padding: 0;
+	list-style: none;
+}
+
+.tabs-control__item {
+    flex-grow: 1;
+    padding: 10px;
+
+    border: 2px solid white;
+    background: black;
+
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.tabs-control__item--current,
+.tabs-control__item:hover {
+    background: white;
+    color: black;
+    cursor: pointer;
+}

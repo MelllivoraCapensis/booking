@@ -24,5 +24,7 @@
 .tabs-control__item:hover {
     background: white;
     color: black;
+}
+.tabs-control__item:not(.tabs-control__item--current):hover {
     cursor: pointer;
 }

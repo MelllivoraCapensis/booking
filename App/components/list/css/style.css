@@ -1,0 +1,6 @@
+.items-list {
+}
+.items-list__item {
+    border: 1px solid black;
+    box-sizing: border-box;
+}

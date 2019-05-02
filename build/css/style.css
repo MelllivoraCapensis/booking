@@ -20,7 +20,7 @@ ul {
   border: 2px solid black;
   display: flex;
   flex-direction: row;
-  height: 400px;
+  height: 200px;
 }
 .wrapper-middle {
   display: flex;

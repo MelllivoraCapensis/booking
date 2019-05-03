@@ -1,5 +1,6 @@
 class ItemsList {
 	constructor (wrapper, relPath) {
+		this.tabName = 'list';
 		this.path = document.URL + relPath;
 		this.wrapper = wrapper;
 		this.itemHeight = 30;
@@ -20,6 +21,13 @@ class ItemsList {
 		this.addScrolling();
 	}
 
+	display (activeTabName) {
+    	if(activeTabName != this.tabName)
+         	this.wrapper.classList.add('hidden');
+         else
+         	this.wrapper.classList.remove('hidden');
+    }
+
 	set data (value) {
     	this.state.data = value;
     	this.state.start = true;
@@ -28,11 +36,11 @@ class ItemsList {
     }
 
 	set scroll (value) {
-		this.state.scroll = Math.round(
-			Math.min(
-			  Math.max(0, value),
-			  this.state.data.length - this.pageSize)
-			);
+		value = Math.min(value, this.state.data.length - 
+			this.pageSize);
+		value = Math.max(value, 0);
+		value = Math.round(value);
+		this.state.scroll = value;
 		this.render();
 	}
 
@@ -124,10 +132,3 @@ class ItemsList {
 		document.head.appendChild(styles);
 	}
 }
-
-const itemsListExemplar = new ItemsList(document.querySelector('.items-list-wrapper'),
-	'App/components/list');
-
-filterExemplar.addUpdateListening(() => {
-	itemsListExemplar.data = filterExemplar.getData();
-})

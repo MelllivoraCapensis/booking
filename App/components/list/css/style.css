@@ -1,6 +1,12 @@
 .items-list {
+ width: 100%;
 }
 .items-list__item {
     border: 1px solid black;
     box-sizing: border-box;
+}
+.popup {
+	width: 100px;
+	height: 100px;
+	background: white;
 }

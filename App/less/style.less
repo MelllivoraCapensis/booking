@@ -4,7 +4,8 @@ ul {
 	list-style: none;
 }
 .boxes {
-	width: 600px;
+	min-width: 600px;
+	width: 80%;
 	margin: 40px auto;
 
 	border: 2px solid black;
@@ -24,21 +25,26 @@ ul {
 
 .wrapper-middle {
 	display: flex;
-	width: 400px;
+	width: 67%;
 	border: 2px solid black;
+	height: 100%;
+	box-sizing: border-box;
 }
 
 
 .filter-wrapper {
-	width: 200px;
+	width: 33%;
 	border: 2px solid black;
+	box-sizing: border-box;
 }
 
 .map-wrapper,
 .items-list-wrapper,
-.adding-form-wrapper {
-	width: 100%;
+.add-form-wrapper {
+	max-width: 100%;
+	min-width: 100%;
 	border: 2px solid black;
+	box-sizing: border-box;
 }
 
 .latest-viewed-ads-wrapper,

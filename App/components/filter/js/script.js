@@ -72,5 +72,3 @@ class Filter {
 	}
 }
 
-const filterExemplar = new Filter(document.querySelector('.filter-wrapper'),
-	'App/components/filter');

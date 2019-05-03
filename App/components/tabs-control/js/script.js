@@ -10,9 +10,19 @@ class TabsControl {
     this.state = {
     	activeTabNum: null
     }
+    this.update = new Event('update');
+    this.addUpdateListening();
     this.setActiveTab(0);
 	}
     
+    addUpdateListening(callback) {
+    	this.updateListeningElem = document.createElement('div');
+    	this.wrapper.appendChild(this.updateListeningElem);
+    	this.updateListeningElem.classList.add('hidden');
+    	this.updateListeningElem.addEventListener('update', callback);
+    }
+
+
     setActiveTab(tabNum) {
     	this.state.activeTabNum = tabNum;
     	this.tabs.forEach((tab) => {
@@ -20,8 +30,12 @@ class TabsControl {
        	})
        	this.tabs[tabNum].classList
        	  .add('tabs-control__item--current');
+       	this.updateListeningElem.dispatchEvent(this.update);
     }
-
+    
+    getActiveTabName () {
+    	return this.tabs[this.state.activeTabNum].dataset.tabName;
+    }
 
 	loadTemplate () {
 		const template = document.createElement('ul');
@@ -30,6 +44,7 @@ class TabsControl {
 			const item = document.createElement('li');
 			this.tabs.push(item);
 			item.dataset.tabNum = ind;
+			item.dataset.tabName = tabName;
 			item.classList.add('tabs-control__item');
 			item.textContent = tabName;
 			template.appendChild(item);
@@ -49,7 +64,3 @@ class TabsControl {
 	}
 }
 
-const wrapper = 
-  document.querySelector('.tabs-control-wrapper');
-const tabsControlExemplar = new TabsControl(wrapper,
-	'App/components/tabs-control', ['list', 'map', 'add form']);

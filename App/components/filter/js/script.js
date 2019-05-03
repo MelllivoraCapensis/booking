@@ -22,6 +22,13 @@ class Filter {
     	this.updateListeningElem.addEventListener('update', callback);
     }
 
+    display (activeTabName) {
+        if(activeTabName == 'add form')
+        	this.wrapper.classList.add('hidden');
+        else
+        	this.wrapper.classList.remove('hidden');
+    }
+
     validate() {
     	return true;
     }

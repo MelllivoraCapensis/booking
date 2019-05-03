@@ -26,6 +26,7 @@ ul {
   height: 400px;
 }
 .wrapper-middle {
+  flex-grow: 1;
   display: flex;
   width: 67%;
   border: 2px solid black;
@@ -37,11 +38,12 @@ ul {
   border: 2px solid black;
   box-sizing: border-box;
 }
-.map-wrapper,
+.items-map-wrapper,
 .items-list-wrapper,
 .add-form-wrapper {
   max-width: 100%;
   min-width: 100%;
+  width: 100%;
   border: 2px solid black;
   box-sizing: border-box;
 }

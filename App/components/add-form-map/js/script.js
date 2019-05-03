@@ -1,15 +1,15 @@
 class Map {
 
-	constructor (wrapper, relPath, mapId, coords, zoomValue) {
+	constructor (wrapper, relPath, mapId, coords) {
 		this.coords = coords;
 		this.mapId = mapId;
 		this.tabName = 'map';
 		this.path = document.URL + relPath;
 		this.wrapper = wrapper;
-		this.state = {
-          zoom: zoomValue
-		}
 		this.loadStyles();
+		this.state = {
+			zoom: 12
+		}
 		this.loadLeafletMap();
 	}
 
@@ -24,7 +24,7 @@ class Map {
 		this.wrapper.innerHTML = '';
 		this.wrapper.id = this.mapId;
 	
-		this.map = L.map(this.wrapper.id).setView([this.coords.x, this.coords.y], this.state.zoom);
+		this.map = L.map(this.wrapper.id).setView(this.coords, this.state.zoom);
 		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
 			attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 			maxZoom: 18,

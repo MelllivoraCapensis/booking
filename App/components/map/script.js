@@ -1,23 +1,15 @@
 class Map {
 
-	constructor (wrapper, relPath, mapId, coords, zoomValue) {
+	constructor (wrapper, mapId, coords, zoomValue) {
 		this.coords = coords;
 		this.mapId = mapId;
-		this.tabName = 'map';
-		this.path = document.URL + relPath;
 		this.wrapper = wrapper;
+		
 		this.state = {
           zoom: zoomValue
 		}
-		this.loadStyles();
-		this.loadLeafletMap();
-	}
 
-	display (activeTabName) {
-		if(activeTabName != this.tabName)
-			this.wrapper.classList.add('hidden');
-		else
-			this.wrapper.classList.remove('hidden');
+		this.loadLeafletMap();
 	}
 
 	loadLeafletMap () {
@@ -30,15 +22,15 @@ class Map {
 			maxZoom: 18,
 			id: 'mapbox.streets',
 			accessToken: 'pk.eyJ1IjoicG9sZXNodWswNyIsImEiOiJjanY3NjljNHcwMmx1M3ludGpkMmtnbXF6In0.jhVqFN6-rmp2o9lWnnCYXA'
-		}).addTo(this.map);
+		}).addTo(this.map).addEventListener('load', () => {
+			this.fixMapBug();
+		})
+		
     }
 
-	loadStyles () {
-		const styles = document.createElement('link');
-		styles.href = this.path + '/css/style.css';
-		styles.rel = 'stylesheet';
-		document.head.appendChild(styles);
-
-	}
+    fixMapBug() {
+    	const resizeEvent = new Event('resize');
+		window.dispatchEvent(resizeEvent);
+    }
 }
 

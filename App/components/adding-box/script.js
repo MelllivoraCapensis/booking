@@ -57,10 +57,19 @@ class AddingBox extends Base {
 	importForm () {
 		const wrapper = this.appendChildWrapper('adding-box__form-wrapper');
 		const inputs = [
+		{tag: 'select', name: 'type', label: 'type', type: '', options:
+	       [{room: 'room'}, {flat: 'flat'}]},
 		{tag: 'input', name: 'subway', label: 'subway', type: 'text'},
-		{tag: 'input', name: 'price', label: 'price', type: 'number'},
-		{tag: 'textarea', name: 'description', label: 'description', type: ''},
-		{tag: 'input', name: 'image', label: 'image', type: 'file'}];
+		{tag: 'input', name: 'price', label: 'price', type: 'number', min: 0, max: 200000},
+		{tag: 'textarea', name: 'description', label: 'description',
+		    minlength: 20, maxlength: 200},
+		{tag: 'input', name: 'image', label: 'image', type: 'file'},
+		{tag: 'input', name: 'internet', label: 'internet', type: 'checkbox'},
+		{tag: 'input', name: 'kitchen', label: 'kitchen', type: 'checkbox'},
+		{tag: 'input', name: 'washing-machine', label: 'washing-machine', type: 'checkbox'},
+		{tag: 'input', name: 'pet', label: 'pet', type: 'checkbox'},
+		{tag: 'input', name: 'lift', label: 'lift', type: 'checkbox'},
+		];
 		const form = new AddingBoxForm(wrapper, inputs);
 		return form;
 	}

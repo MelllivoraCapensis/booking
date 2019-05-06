@@ -137,28 +137,64 @@ ul {
   height: 100%;
   padding: 20px;
 }
-.adding-form label span {
-  display: block;
-  margin-bottom: 5px;
-}
-.adding-form label {
-  margin-bottom: 20px;
-}
-.adding-form input,
-.adding-form textarea,
-.adding-form button {
-  width: 80%;
-  max-width: 300px;
+.adding-form__features {
+  margin-bottom: 40px;
 }
 .adding-form__submit {
   display: block;
+  width: 80%;
   padding: 10px;
+}
+.adding-form__item {
+  width: 80%;
+  max-width: 300px;
+}
+.adding-form__item-label {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+.adding-form__item-label-text {
+  display: block;
+  margin-bottom: 5px;
 }
 .features-box {
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   flex-wrap: wrap;
   width: 80%;
   min-height: 50px;
+  box-sizing: border-box;
+  border: 1px solid lightgray;
+  padding: 20px;
+}
+.features-box__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 60px;
+  height: 90px;
+}
+.features-box__item-text {
+  display: block;
+  text-align: center;
+  vertical-align: bottom;
+}
+.features-box__item-icon {
+  width: 100%;
+  height: 50px;
+}
+.features-box__item-icon:hover,
+.features-box__item-icon:focus {
+  transform: scale(1.05);
+  transition: transform 0.1s;
+  outline: none;
+}
+.features-box__item--checked .features-box__item-icon {
+  outline: 2px solid orange;
+  transform: scale(1.05);
 }
 .hidden {
   display: none;

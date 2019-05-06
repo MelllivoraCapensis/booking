@@ -1,0 +1,54 @@
+<form class="adding-box__form adding-form">
+	<label class="adding-form__item-label">
+		<span class="adding-form__item-label-text">Type</span>
+		<select class="adding-form__type" name="type">
+			<option value="room">room</option>
+			<option value="flat">flat</option>
+		</select>
+	</label>
+	<label class="adding-form__item-label">
+		<span class="adding-form__item-label-text">Subway</span>
+		<input class="adding-form__item" name="subway" required>
+	</label>
+	<label class="adding-form__item-label">
+		<span class="adding-form__item-label-text">Price</span>
+		<input type="number" class="adding-form__item" name="price" min="0" max="200000" required>
+	</label>
+	<label class="adding-form__item-label">
+		<span class="adding-form__item-label-text">Description</span>
+		<textarea class="adding-form__item" name="description" minLength="20" maxLength="200" required></textarea>
+	</label>
+	<div class="adding-form__features features-box">
+		<div class="features-box__item" data-name="internet">
+			<span class="features-box__item-text">
+				Internet
+			</span>
+			<img class="features-box__item-icon" src="App/components/adding-box/components/adding-box-form/img/internet-icon.png" tabindex="0">
+		</div>
+		<div class="features-box__item" data-name="washing-machine">
+			<span class="features-box__item-text">
+				Washing Machine
+			</span>
+			<img class="features-box__item-icon" src="App/components/adding-box/components/adding-box-form/img/washing-machine-icon.png" tabindex="0">
+		</div>
+		<div class="features-box__item" data-name="kitchen">
+			<span class="features-box__item-text">
+				Kitchen
+			</span>
+			<img class="features-box__item-icon"src="App/components/adding-box/components/adding-box-form/img/kitchen-icon.png" tabindex="0">
+		</div>
+		<div class="features-box__item" data-name="pet">
+			<span class="features-box__item-text">
+				Pet
+			</span>
+			<img class="features-box__item-icon" src="App/components/adding-box/components/adding-box-form/img/pet-icon.png" tabindex="0">
+		</div>
+		<div class="features-box__item" data-name="lift">
+			<span class="features-box__item-text">
+				Lift
+			</span>
+			<img class="features-box__item-icon" src="App/components/adding-box/components/adding-box-form/img/lift-icon.png" tabindex="0">
+		</div>
+	</div>
+	<button class="adding-form__submit">Send</button>
+</form>
